@@ -4,16 +4,16 @@ import pandas as pd
 import time
 
 print('\n\tAutomação inicializada!')
-#login = input('\nInforme seu usuário: ')
-#senha = getpass.getpass('\nInforme sua senha: ')
+login = input('\nInforme seu usuário: ')
+senha = getpass.getpass('\nInforme sua senha: ')
 
 driver = webdriver.Chrome('/home/adam/Documentos/programação/SerCAE/chromedriver')
 driver.get('https://brasil.sercaeone.com/sercae/pages/core/login.jsf')
 
 #login
-driver.find_element_by_xpath('//*[@id="j_username"]').send_keys("ACCNA034")
+driver.find_element_by_xpath('//*[@id="j_username"]').send_keys(login)
 #senha
-driver.find_element_by_xpath('//*[@id="j_password"]').send_keys("Powerockao123," + Keys.ENTER)
+driver.find_element_by_xpath('//*[@id="j_password"]').send_keys(senha + Keys.ENTER)
 time.sleep(2)
 #Adentrar como Cliente
 driver.find_element_by_xpath('//*[@id="frmMiPanelMiEmpresa:btnCliente"]').click()
